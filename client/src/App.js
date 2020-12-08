@@ -9,7 +9,7 @@ function App() {
   const [loading, setLoading]=useState(false)
   const [followers, setFollowers]=useState([])
   const [currentPage, setCurrentPage]=useState(1)
-  const [postsPerPage, setPostsPerPage]=useState(10)
+  const [usersPerPage, setUsersPerPage]=useState(10)
   const [userText, setUserText]=useState('')
 
   // useEffect(() => {
@@ -26,7 +26,7 @@ function App() {
     //https://api.github.com/search/users?q=${userText}&page=2&per_page=3
     // .get(`https://api.github.com/users/${userText}`)
     .then(res=>{
-      setUsers(res.data)
+      setUsers(res.data.items)
       setLoading(false)
       console.log("res", res)}
     )
@@ -39,6 +39,11 @@ function App() {
 
   console.log("SET USERS", users)
 
+  //Get current posts
+  const indexOfLastUser=currentPage * usersPerPage;
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  const currentPosts = users.slice(indexOfFirstUser, indexOfLastUser)
+console.log("user-->", users)
   return (
     <div className="App">
       <form onSubmit={fetchUsers}>
@@ -55,7 +60,7 @@ function App() {
         {/* {users.items && users.items.map(item=><div>{item.login}</div>)} */}
 
         <div></div>
-        <User users={users} loading={loading}/>
+        <User users={currentPosts} loading={loading}/>
        {/* {users.login}
        <img src={users.avatar_url} style={{height:"100px"}}/> */}
 

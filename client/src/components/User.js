@@ -11,7 +11,7 @@ const User = ({users, loading}) => {
             <ul>
                 {/* {users.items.map(item=><li key={item.id}>{item.login}</li>)} */}
                 {/* {users.items.map(item=><div>{item.login}</div>)} */}
-                {users.items && users.items.map(item=><li key={item.id}>{item.login}</li>)}
+                {users && users.map(item=><li key={item.id}>{item.login}</li>)}
 
             </ul>
             
