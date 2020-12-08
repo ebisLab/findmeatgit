@@ -3,6 +3,7 @@ import './App.css';
 import React,{useState, useEffect} from 'react';
 import axios from 'axios'
 import User from './components/User';
+import Pagination from './components/Pagination';
 
 function App() {
   const [users, setUsers]=useState([])
@@ -22,28 +23,31 @@ function App() {
     e.preventDefault()
     setLoading(true)
     axios
-    .get(`https://api.github.com/search/users?q=${userText}`)
+    .get(`https://api.github.com/search/users?q=${userText}&per_page=100`)
     //https://api.github.com/search/users?q=${userText}&page=2&per_page=3
     // .get(`https://api.github.com/users/${userText}`)
     .then(res=>{
       setUsers(res.data.items)
       setLoading(false)
-      console.log("res", res)}
+      console.log("res", res)
+      }
     )
     .catch(err=>console.log(err))
+    setUserText('')
   }
 
   const handleChange=e=>{
     setUserText(e.target.value)
   }
 
-  console.log("SET USERS", users)
-
   //Get current posts
   const indexOfLastUser=currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentPosts = users.slice(indexOfFirstUser, indexOfLastUser)
 console.log("user-->", users)
+
+//change page
+  const paginate= (pageNumber)=>setCurrentPage(pageNumber)
   return (
     <div className="App">
       <form onSubmit={fetchUsers}>
@@ -57,10 +61,9 @@ console.log("user-->", users)
       </form>
 
       <div>
-        {/* {users.items && users.items.map(item=><div>{item.login}</div>)} */}
-
         <div></div>
         <User users={currentPosts} loading={loading}/>
+        <Pagination usersPerPage={usersPerPage} totalUsers={users.length} paginate={paginate} />
        {/* {users.login}
        <img src={users.avatar_url} style={{height:"100px"}}/> */}
 
