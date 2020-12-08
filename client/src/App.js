@@ -4,6 +4,7 @@ import React,{useState, useEffect} from 'react';
 import axios from 'axios'
 import User from './components/User';
 import Pagination from './components/Pagination';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [users, setUsers]=useState([])
@@ -44,7 +45,6 @@ function App() {
   const indexOfLastUser=currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentPosts = users.slice(indexOfFirstUser, indexOfLastUser)
-console.log("user-->", users)
 
 //change page
   const paginate= (pageNumber)=>setCurrentPage(pageNumber)

@@ -5,7 +5,6 @@ const User = ({users, loading}) => {
         return <h2>Loading...</h2>
     }
 
-    console.log(users)
     return (
         <div>
             <ul>
