@@ -1,20 +1,40 @@
 import React from 'react'
+import { motion } from "framer-motion"
 
-const User = ({users, loading, setClickUser}) => {
+const User = ({users, loading, setClickUser, setIsOpen}) => {
     if(loading){
         return <h2>Loading...</h2>
     }
 
+    const variants = {
+        hidden: { 
+            // opacity: 0,
+            // transform: "translate(350px,0)"
+         },
+        visible: { 
+            // opacity: 1,
+            // transition: { duration: 0.4 },
+            // transform: "translate(0px,0)"
+        },
+        exit:{
+            transform: "translate(-350px,0)"
+        }
+      }
+
     return (
-        <div>
+        <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={variants}
+        exit="exit"
+        
+        >
             <ul>
-                {/* {users.items.map(item=><li key={item.id}>{item.login}</li>)} */}
-                {/* {users.items.map(item=><div>{item.login}</div>)} */}
-                {users && users.map(item=><li key={item.id} onClick={()=>setClickUser(item.login)}>{item.login}</li>)}
+                {users && users.map(item=><li key={item.id} onClick={()=>(setClickUser(item.login), setIsOpen(true))}>{item.login}</li>)}
 
             </ul>
             
-        </div>
+        </motion.div>
     )
 }
 

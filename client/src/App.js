@@ -7,9 +7,12 @@ import Pagination from './components/Pagination';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Followers from './components/Followers';
 
+import { motion } from "framer-motion"
+
 function App() {
   const [users, setUsers]=useState([])
   const [loading, setLoading]=useState(false)
+  const [isOpen, setIsOpen]=useState(false)
   const [currentPage, setCurrentPage]=useState(1)
   const [usersPerPage, setUsersPerPage]=useState(10)
   const [userText, setUserText]=useState('')
@@ -31,6 +34,7 @@ function App() {
     )
     .catch(err=>console.log(err))
     setUserText('')
+    setIsOpen(false)
     setFollowers(undefined)
   }
 
@@ -44,7 +48,7 @@ function App() {
   const currentPosts = users.slice(indexOfFirstUser, indexOfLastUser)
 
 //change page
-  const paginate= (pageNumber)=>setCurrentPage(pageNumber)
+  const paginate= (pageNumber)=>(setCurrentPage(pageNumber), setFollowers(undefined))
 
   
   return (
@@ -59,12 +63,12 @@ function App() {
          <button>Search</button>
       </form>
 
-      <div style={{display:"inline-flex"}}>
-        <div className="user">
-        <User setClickUser={setClickUser} users={currentPosts} loading={loading}/>
+      <div style={{display:"inline-flex", width:"100%"}}>
+        <div className="user" style={{width:"100%"}}>
+        <User setIsOpen={setIsOpen} setClickUser={setClickUser} users={currentPosts} loading={loading}/>
         <Pagination usersPerPage={usersPerPage} totalUsers={users.length} paginate={paginate} />
         </div>
-        {clickUser && <Followers clickUser={clickUser} followers={followers} setFollowers={setFollowers} />}
+        {isOpen && <Followers setIsOpen={setIsOpen} clickUser={clickUser} followers={followers} setFollowers={setFollowers} />}
       </div>
     </div>
   );
