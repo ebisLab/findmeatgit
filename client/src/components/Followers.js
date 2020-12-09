@@ -24,17 +24,34 @@ const Followers = ({clickUser, followers, setFollowers}) => {
             transition: { duration: 0.4 },
             transform: "translate(0px,0)"
         },
+        // spring :{
+        //     type: "spring",
+        //     damping: 30,
+        //     stiffness: 300
+        //   }
+          
       }
+
+      const spring = {
+        type: "spring",
+        damping: 30,
+        stiffness: 300
+      };
+
+
 
     return (
         <motion.div 
         initial="hidden"
     animate="visible"
     variants={variants}
+  
         className="followers" style={{width:"30%"}}>
     {followers == undefined ? "":<h2>{clickUser}'s Followers</h2>}
             <ul>
-    {followers && followers.map(item=><li key={item.id}>{item.login}</li>)}
+    {followers && followers.map(item=><motion.li 
+      layoutTransition={spring}
+    key={item.id}>{item.login}</motion.li>)}
     {followers && followers.length ==0  && `Oh no! ${clickUser} has no followers, be the first one`}
             </ul>
             

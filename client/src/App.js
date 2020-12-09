@@ -61,7 +61,7 @@ function App() {
     },
     forminitial:{
       height: "100vh",
-      background: "red",
+      // background: "red",
       position: "relative"
     },
     formanimate:{
@@ -72,19 +72,26 @@ function App() {
   return (
     <div className="App">
       <motion.div
+      className="formcontainer"
       variants={variants}
       initial="forminitial" 
       animate={`${isSubmitted? "formanimate":"forminitial"}`}
       >
-      <form onSubmit={fetchUsers} className="form">
+        <div className="form" sty>
+        <h1 className="title">FindMe@Git</h1>
+      <form onSubmit={fetchUsers}>
         <input
         placeholder="Search User..."
         type="text"
         value={userText}
+        className="input"
         onChange={handleChange}
          />
-         <button>Search</button>
+         <button
+         className="searchbutton"
+         >Search</button>
       </form>
+      </div>
       </motion.div>
 
       <div style={{display:`${isSubmitted?"inline-flex":"none"}`, width:"100%"}}>

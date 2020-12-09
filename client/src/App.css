@@ -42,11 +42,38 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -100%);
 }
 
 .formcontainer{
     height: 100vh;
-    background: red;
+    background: #B79891;  /* fallback for old browsers*/ 
+background: -webkit-linear-gradient(to bottom, #94716B, #B79891); /* Chrome 10-25, Safari 5.1-6*/
+ background: linear-gradient(to bottom, #94716B, #B79891); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+
+/*background: #ff9966;  /* fallback for old browsers */
+/*background: -webkit-linear-gradient(to bottom, #ff5e62, #ff9966);  /* Chrome 10-25, Safari 5.1-6 */
+/*background: linear-gradient(to bottom, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     position: relative;
+}
+
+.title{
+  font-family: 'Big Shoulders Inline Text', cursive;
+}
+
+.input{
+  border: 1px solid black;
+  padding: 5px;
+  width: 30vw;
+  height: 50px;
+  margin: 10px;
+}
+
+.searchbutton{
+  width: 100px;
+  border: 1px solid black;
+  box-shadow: 5px 10px;
+  padding: 5px;
+  vertical-align: super;
 }

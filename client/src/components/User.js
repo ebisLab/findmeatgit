@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 
 const User = ({users, isSubmitted, loading, setClickUser, setIsOpen}) => {
     if(loading)return <h2>Loading...</h2>
-    else if(isSubmitted && loading==false && users.length==0)return"no user found with this name"
+    else if(isSubmitted && loading===false && users.length===0)return"no user found with this name"
 
     const variants = {
         hidden: { 
@@ -26,11 +26,9 @@ const User = ({users, isSubmitted, loading, setClickUser, setIsOpen}) => {
         animate="visible"
         variants={variants}
         exit="exit"
-        
         >
             <ul>
                 {users && users.map(item=><li key={item.id} onClick={()=>(setClickUser(item.login), setIsOpen(true))}>{item.login}</li>)}
-
             </ul>
             
         </motion.div>
