@@ -48,8 +48,19 @@ function App() {
   const currentPosts = users.slice(indexOfFirstUser, indexOfLastUser)
 
 //change page
-  const paginate= (pageNumber)=>(setCurrentPage(pageNumber), setFollowers(undefined))
+  const paginate= (pageNumber)=>(setCurrentPage(pageNumber), setIsOpen(false))
 
+  const variants = {
+    hidden: {
+      width:"100%"
+     },
+    visible: { 
+      width:"70%",
+        // opacity: 1,
+        transition: { duration: 0.4 },
+        // transform: "translate(0px,0)"
+    },
+  }
   
   return (
     <div className="App">
@@ -64,10 +75,14 @@ function App() {
       </form>
 
       <div style={{display:"inline-flex", width:"100%"}}>
-        <div className="user" style={{width:"100%"}}>
+        <motion.div 
+                initial="hidden"
+                animate={`${isOpen? "visible":"hidden"}`}
+                variants={variants}
+        className="user" style={{width:"100%"}}>
         <User setIsOpen={setIsOpen} setClickUser={setClickUser} users={currentPosts} loading={loading}/>
         <Pagination usersPerPage={usersPerPage} totalUsers={users.length} paginate={paginate} />
-        </div>
+        </motion.div>
         {isOpen && <Followers setIsOpen={setIsOpen} clickUser={clickUser} followers={followers} setFollowers={setFollowers} />}
       </div>
     </div>
