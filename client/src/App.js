@@ -13,6 +13,7 @@ function App() {
   const [users, setUsers]=useState([])
   const [loading, setLoading]=useState(false)
   const [isOpen, setIsOpen]=useState(false)
+  const [isSubmitted, setIsSubmitted]=useState(false)
   const [currentPage, setCurrentPage]=useState(1)
   const [usersPerPage, setUsersPerPage]=useState(10)
   const [userText, setUserText]=useState('')
@@ -24,6 +25,7 @@ function App() {
   const fetchUsers =e=>{
     e.preventDefault()
     setLoading(true)
+    setIsSubmitted(true)
     axios
     .get(`https://api.github.com/search/users?q=${userText}&per_page=100`)
     .then(res=>{
@@ -60,11 +62,27 @@ function App() {
         transition: { duration: 0.4 },
         // transform: "translate(0px,0)"
     },
+    forminitial:{
+      height: "95vh",
+      background: "red",
+      position: "relative"
+    },
+    formanimate:{
+      height: "15vh",
+    }
   }
   
   return (
     <div className="App">
-      <form onSubmit={fetchUsers}>
+      <motion.div
+      variants={variants}
+      initial="forminitial" 
+      animate={`${isSubmitted? "formanimate":"forminitial"}`}
+      // animate="formanimate"
+      // style={{}} 
+      // className="formcontainer"
+      >
+      <form onSubmit={fetchUsers} className="form">
         <input
         placeholder="Search User..."
         type="text"
@@ -73,6 +91,7 @@ function App() {
          />
          <button>Search</button>
       </form>
+      </motion.div>
 
       <div style={{display:"inline-flex", width:"100%"}}>
         <motion.div 
