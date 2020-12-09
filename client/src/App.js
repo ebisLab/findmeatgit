@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React,{useState} from 'react';
 import axios from 'axios'
@@ -58,12 +57,10 @@ function App() {
      },
     visible: { 
       width:"70%",
-        // opacity: 1,
         transition: { duration: 0.4 },
-        // transform: "translate(0px,0)"
     },
     forminitial:{
-      height: "95vh",
+      height: "100vh",
       background: "red",
       position: "relative"
     },
@@ -78,9 +75,6 @@ function App() {
       variants={variants}
       initial="forminitial" 
       animate={`${isSubmitted? "formanimate":"forminitial"}`}
-      // animate="formanimate"
-      // style={{}} 
-      // className="formcontainer"
       >
       <form onSubmit={fetchUsers} className="form">
         <input
@@ -93,14 +87,14 @@ function App() {
       </form>
       </motion.div>
 
-      <div style={{display:"inline-flex", width:"100%"}}>
+      <div style={{display:`${isSubmitted?"inline-flex":"none"}`, width:"100%"}}>
         <motion.div 
                 initial="hidden"
                 animate={`${isOpen? "visible":"hidden"}`}
                 variants={variants}
         className="user" style={{width:"100%"}}>
-        <User setIsOpen={setIsOpen} setClickUser={setClickUser} users={currentPosts} loading={loading}/>
-        <Pagination usersPerPage={usersPerPage} totalUsers={users.length} paginate={paginate} />
+        <User setIsOpen={setIsOpen} setClickUser={setClickUser} users={currentPosts} loading={loading} isSubmitted={isSubmitted}/>
+        <Pagination usersPerPage={usersPerPage} totalUsers={users.length} users={users} paginate={paginate} />
         </motion.div>
         {isOpen && <Followers setIsOpen={setIsOpen} clickUser={clickUser} followers={followers} setFollowers={setFollowers} />}
       </div>

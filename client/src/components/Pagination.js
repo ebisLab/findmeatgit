@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Pagination = ({usersPerPage, totalUsers, paginate}) => {
+const Pagination = ({usersPerPage, users, totalUsers, paginate}) => {
     const [numbr, setNumbr]=useState(1)
     const pageNumbers = [];
 
@@ -10,13 +10,15 @@ const Pagination = ({usersPerPage, totalUsers, paginate}) => {
 
     
     return (
-        <div>
+        <div className="d-flex justify-content-center">
             <ul className="pagination">
             {pageNumbers.map(num=>(
                 <li key={num} className={`page-item ${numbr === num? "active":""}`}>
                     <a onClick={()=>(paginate(num), setNumbr(num))} className="page-link">{num}</a>
                 </li>
             ))}
+{users.length == 0? "": totalUsers + ` user${totalUsers==1?"":"s"} found`}
+
             </ul>
             
         </div>

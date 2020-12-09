@@ -1,10 +1,9 @@
 import React from 'react'
 import { motion } from "framer-motion"
 
-const User = ({users, loading, setClickUser, setIsOpen}) => {
-    if(loading){
-        return <h2>Loading...</h2>
-    }
+const User = ({users, isSubmitted, loading, setClickUser, setIsOpen}) => {
+    if(loading)return <h2>Loading...</h2>
+    else if(isSubmitted && loading==false && users.length==0)return"no user found with this name"
 
     const variants = {
         hidden: { 

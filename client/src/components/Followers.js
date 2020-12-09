@@ -32,10 +32,10 @@ const Followers = ({clickUser, followers, setFollowers}) => {
     animate="visible"
     variants={variants}
         className="followers" style={{width:"30%"}}>
-            {/* <h2>{clickUser}'s Profile</h2> */}
     {followers == undefined ? "":<h2>{clickUser}'s Followers</h2>}
             <ul>
     {followers && followers.map(item=><li key={item.id}>{item.login}</li>)}
+    {followers && followers.length ==0  && `Oh no! ${clickUser} has no followers, be the first one`}
             </ul>
             
         </motion.div>
