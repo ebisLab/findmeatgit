@@ -47,19 +47,28 @@
 
 .formcontainer{
     height: 100vh;
-    background: #B79891;  /* fallback for old browsers*/ 
-background: -webkit-linear-gradient(to bottom, #94716B, #B79891); /* Chrome 10-25, Safari 5.1-6*/
- background: linear-gradient(to bottom, #94716B, #B79891); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
-
-/*background: #ff9966;  /* fallback for old browsers */
-/*background: -webkit-linear-gradient(to bottom, #ff5e62, #ff9966);  /* Chrome 10-25, Safari 5.1-6 */
-/*background: linear-gradient(to bottom, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #ff9966;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #ff5e62, #ff9966);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     position: relative;
+/*
+    background: #B79891;  
+    background: -webkit-linear-gradient(to bottom, #94716B, #B79891);  
+    background: linear-gradient(to bottom, #94716B, #B79891);  
+*/
 }
 
 .title{
   font-family: 'Big Shoulders Inline Text', cursive;
+  margin: 0 45px;
+  font-size: 4em;
+  /* left: 0;
+  position: absolute; */
+}
+.position{
+  left: 0;
+  position: absolute;
+  font-size: 2.8em;
 }
 
 .input{
@@ -76,4 +85,123 @@ background: -webkit-linear-gradient(to bottom, #94716B, #B79891); /* Chrome 10-2
   box-shadow: 5px 10px;
   padding: 5px;
   vertical-align: super;
+}
+
+.userContainer{
+  border-radius: 20px;
+  border: 1px solid black;
+  margin: 20px;
+  width: 330px;
+  display: inline-block;
+  box-shadow: 5px 10px;
+  background:white
+}
+
+.profileImage{
+  width: 100px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 18px 0px 0px 18px;
+}
+
+.cushion{
+  padding: 20px;
+   width: 220px;
+}
+
+.profileBorder{
+  border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.visitGithub{
+  text-decoration: none;
+    color: black;
+}
+
+.usercardcontainer{
+  display: flex;
+  cursor: pointer;
+}
+
+.followers{
+  background:white;
+  margin-top: -20px;
+  padding-top: 50px;
+  height:100%;
+  padding-bottom: 20px;
+}
+
+/*followers*/
+.followerContainer{
+  border-radius: 20px;
+  margin: 20px;
+  display: inline-block;
+}
+
+.followerprofileImage{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.followercushion{
+  padding: 0 20px;
+  width: 220px;
+}
+
+.followerprofileBorder{
+  border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    text-decoration: none;
+    background:white
+}
+
+.followervisitGithub{
+  text-decoration: none;
+    color: black;
+}
+
+.followercardcontainer{
+  display: flex;
+  cursor: pointer;
+}
+
+.follower-div{
+  background:white;
+  margin-top: -20px;
+  padding-top: 50px;
+}
+
+.exitbutton{
+  position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.logoalign{
+  display: inline-flex;
+  margin-top: 35px;
+  width: 100%;
+    justify-content: center;
+}
+
+.page-nums {
+  position: relative;
+  color: dimgrey !important;
+  border-radius: 10px;
+      background-color: unset!important;
+    border: unset!important;
+    cursor: pointer !important;
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: darksalmon!important;
+  border-color: darksalmon !important;
 }

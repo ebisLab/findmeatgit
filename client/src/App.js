@@ -14,7 +14,7 @@ function App() {
   const [isOpen, setIsOpen]=useState(false)
   const [isSubmitted, setIsSubmitted]=useState(false)
   const [currentPage, setCurrentPage]=useState(1)
-  const [usersPerPage, setUsersPerPage]=useState(10)
+  const [usersPerPage, setUsersPerPage]=useState(5)
   const [userText, setUserText]=useState('')
   const [clickUser, setClickUser]=useState()
   const [followers, setFollowers]=useState()
@@ -66,6 +66,7 @@ function App() {
     },
     formanimate:{
       height: "15vh",
+      padding:"15px"
     }
   }
   
@@ -77,8 +78,8 @@ function App() {
       initial="forminitial" 
       animate={`${isSubmitted? "formanimate":"forminitial"}`}
       >
-        <div className="form" sty>
-        <h1 className="title">FindMe@Git</h1>
+        <div className={`form ${isSubmitted?"logoalign":""}`}>
+        <h1 className={`title ${isSubmitted?"position":""}`}>FindMe@Git</h1>
       <form onSubmit={fetchUsers}>
         <input
         placeholder="Search User..."

@@ -13,11 +13,11 @@ const Pagination = ({usersPerPage, users, totalUsers, paginate}) => {
         <div className="d-flex justify-content-center">
             <ul className="pagination">
             {pageNumbers.map(num=>(
-                <li key={num} className={`page-item ${numbr === num? "active":""}`}>
-                    <a onClick={()=>(paginate(num), setNumbr(num))} className="page-link">{num}</a>
+                <li  key={num} className={`page-item ${numbr === num? "active":""}`}>
+                    <a style={{cursor:"pointer"}} onClick={()=>(paginate(num), setNumbr(num))} className="page-link page-nums">{num}</a>
                 </li>
             ))}
-{users.length == 0? "": totalUsers + ` user${totalUsers==1?"":"s"} found`}
+            {users.length == 0? "": <div style={{color:"darkgrey", padding:"0 20px"}}>{totalUsers + ` user${totalUsers==1?"":"s"} found`}</div>}
 
             </ul>
             
