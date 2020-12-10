@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react';
 import axios from 'axios'
 import { motion } from "framer-motion"
 
-const Followers = ({clickUser, followers, setFollowers, setIsOpen}) => {
+const Followers = ({clickUser, followers, setFollowers, setIsOpen, history}) => {
 
     useEffect(() => {
         axios
@@ -33,7 +33,7 @@ const Followers = ({clickUser, followers, setFollowers, setIsOpen}) => {
         stiffness: 300
       };
 
-
+      const navigateTo = () => history.push('http://google.com');
 
     return (
         <motion.div 
@@ -69,7 +69,21 @@ const Followers = ({clickUser, followers, setFollowers, setIsOpen}) => {
 
     </motion.li>)}
 
-        {followers && followers.length ===0  && (<><div style={{padding:"20px", color:"darksalmon"}}>Oh no! {clickUser} has no followers, be the first one</div><button className="followervisitGithub followerprofileBorder">Visit Github</button></>)}
+        {followers && followers.length ===0  && (
+        <>
+        <div style={{padding:"20px", color:"darksalmon"}}>
+            Oh no! {clickUser} has no followers, be the first one
+            </div>
+            <button
+              className="followervisitGithub followerprofileBorder"
+              onClick={(e) => (window.location = `https://github.com/${clickUser}`)}
+            
+
+            >Visit Github</button>
+                {/* <button 
+                className="followervisitGithub followerprofileBorder"
+                onClick={{`google.com`}}>TEST</button> */}
+                </>)}
             </ul>
             </div>
             

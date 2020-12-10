@@ -37,6 +37,24 @@
   }
 }
 
+button.searchbutton {
+  position: absolute;
+  margin:10px;
+}
+
+button.searchbutton:active {
+  margin-top: 12px;
+  margin-left: 12px;
+  box-shadow: 3px 8px;
+}
+
+button:focus {
+  outline: none!important;
+}
+
+input:focus {
+  outline: none;
+}
 
 .form{
   position: absolute;
