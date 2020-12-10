@@ -103,6 +103,8 @@ input:focus {
   box-shadow: 5px 10px;
   padding: 5px;
   vertical-align: super;
+  color:black;
+  background:white;
 }
 
 .userContainer{
@@ -141,6 +143,7 @@ input:focus {
 
 .profileBorder{
   border: 1px solid black;
+  color:black;
     border-radius: 10px;
     padding: 5px;
     text-decoration: none;
