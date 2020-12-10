@@ -33,7 +33,7 @@ const User = ({users, isSubmitted, loading, setClickUser, setIsOpen}) => {
     
    <img src={item.avatar_url} alt={item.login} className="profileImage" />
    <div className="cushion">
-       <h2>{item.login}</h2>
+       <h2 className="user-name">{item.login}</h2>
        <div className="profileBorder">
        <a href={`${item.html_url}`} className="visitGithub">Visit Github</a>
        </div>

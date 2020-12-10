@@ -107,6 +107,13 @@ input:focus {
   background:white;
 }
 
+.user-name{
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
 .userContainer{
   border-radius: 20px;
   border: 1px solid black;
