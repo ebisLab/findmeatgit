@@ -127,6 +127,18 @@ input:focus {
    width: 220px;
 }
 
+.userInfo{
+  display: inline-flex;
+    width: 100%;
+    margin-top: 30%;
+}
+
+.userInfoRight{
+  right: 0;
+  text-align: right;
+  width: 100%;
+}
+
 .profileBorder{
   border: 1px solid black;
     border-radius: 10px;

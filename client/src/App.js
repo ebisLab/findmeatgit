@@ -31,8 +31,7 @@ function App() {
       setUsers(res.data.items)
       setLoading(false)
       console.log("res", res)
-      }
-    )
+      })
     .catch(err=>console.log(err))
     setUserText('')
     setIsOpen(false)
