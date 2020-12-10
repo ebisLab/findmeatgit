@@ -48,7 +48,7 @@ const Followers = ({clickUser, followers, setFollowers, setIsOpen}) => {
   <span aria-hidden="true" style={{color:"red"}}>&times;</span>
 </button>
 </div>
-    {followers == undefined ? "":<h2>{clickUser}'s Followers</h2>}
+    {followers === undefined ? "":<h2>{clickUser}'s Followers</h2>}
     <div className="scrolldiv" style={{overflow:"scroll", height:"550px"}}>
             <ul>
     {followers && followers.map(item=><motion.li 
@@ -69,7 +69,7 @@ const Followers = ({clickUser, followers, setFollowers, setIsOpen}) => {
 
     </motion.li>)}
 
-        {followers && followers.length ==0  && (<><div style={{padding:"20px", color:"darksalmon"}}>Oh no! {clickUser} has no followers, be the first one</div><button className="followervisitGithub followerprofileBorder">Visit Github</button></>)}
+        {followers && followers.length ===0  && (<><div style={{padding:"20px", color:"darksalmon"}}>Oh no! {clickUser} has no followers, be the first one</div><button className="followervisitGithub followerprofileBorder">Visit Github</button></>)}
             </ul>
             </div>
             

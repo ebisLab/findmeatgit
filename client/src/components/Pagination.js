@@ -17,7 +17,7 @@ const Pagination = ({usersPerPage, users, totalUsers, paginate}) => {
                     <a style={{cursor:"pointer"}} onClick={()=>(paginate(num), setNumbr(num))} className="page-link page-nums">{num}</a>
                 </li>
             ))}
-            {users.length == 0? "": <div style={{color:"darkgrey", padding:"0 20px"}}>{totalUsers + ` user${totalUsers==1?"":"s"} found`}</div>}
+            {users.length === 0? "": <div style={{color:"darkgrey", padding:"0 20px"}}>{totalUsers + ` user${totalUsers===1?"":"s"} found`}</div>}
 
             </ul>
             
