@@ -10,6 +10,14 @@ Find Me at Git is a user search directory that re-implements a portion of GitHub
 2. Access User's Followers and visit their Github
 3. Navigate through list of results
 
+## Tools used
+
+* React framework
+* Framer Motion - animation effect
+* Axios to fetch data 
+* Boostrap for pagination styling
+* CSS
+
 
 ## Some Notes
 
